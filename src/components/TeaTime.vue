@@ -105,7 +105,7 @@
         }
         // 提交邏輯
         try {
-            await axios.post('https://localhost:7137/api/Order/SubmitOrder', {
+            await axios.apiClient('/api/Order/SubmitOrder', {
                 itemId: item.id,
                 quantity: item.quantity
             });
@@ -140,7 +140,7 @@
 
     // 元件掛載時加載資料
     onMounted(async () => {
-        await axios.get('https://localhost:7011/api/Menu/GetMenuItems')
+        await apiClient.get('/api/Menu/GetMenuItems')
             .then(response => {
                 items.value = response.data.map((menuItem: MenuItem) => ({
                     ...menuItem,
