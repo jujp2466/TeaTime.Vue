@@ -95,7 +95,7 @@
 
     // 使用環境變數中的 API URL
     const apiClient = axios.create({
-        baseURL: import.meta.env.VITE_APP_API_URL,  // Vite 使用 import.meta.env
+        baseURL: import.meta.env.VITE_API_URL,  // Vite 使用 import.meta.env
     });
 
     // 提交品項
