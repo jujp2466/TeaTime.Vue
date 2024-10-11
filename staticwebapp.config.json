@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "route": "/api/*",
+      "allowedMethods": ["GET", "POST"],
+      "backendUri": "https://teatimeapi-hsheh0eca0a2d8a0.japaneast-01.azurewebsites.net"  // 替換為你的實際 API URL
+    }
+  ]
+}
