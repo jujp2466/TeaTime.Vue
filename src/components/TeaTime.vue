@@ -22,9 +22,9 @@
             </template>
 
             <!-- 操作按鈕 -->
-            <template #cell(actions)="data">
+            <!--<template #cell(actions)="data">
                 <button @click="handleSubmit(data.item)" class="btn btn-primary">提交</button>
-            </template>
+            </template>-->
         </b-table>
 
         <!-- 按鈕用來動態增加品項 -->
@@ -99,21 +99,21 @@
     });
 
     // 提交品項
-    const handleSubmit = async (item: MenuItem): Promise<void> => {
-        if (!validateItem(item)) {
-            return;
-        }
-        // 提交邏輯
-        try {
-            await axios.apiClient('/api/Order/SubmitOrder', {
-                itemId: item.id,
-                quantity: item.quantity
-            });
-            alert('訂單已提交');
-        } catch (error) {
-            console.error('Error submitting order:', error);
-        }
-    };
+    //const handleSubmit = async (item: MenuItem): Promise<void> => {
+    //    if (!validateItem(item)) {
+    //        return;
+    //    }
+    //    // 提交邏輯
+    //    try {
+    //        await axios.post('/api/Order/SubmitOrder', {
+    //            itemId: item.id,
+    //            quantity: item.quantity
+    //        });
+    //        alert('訂單已提交');
+    //    } catch (error) {
+    //        console.error('Error submitting order:', error);
+    //    }
+    //};
 
     // 新增品項
     const addItem = (): void => {
