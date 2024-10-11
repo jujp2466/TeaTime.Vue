@@ -93,6 +93,11 @@
         return isValid;
     };
 
+    // 使用環境變數中的 API URL
+    const apiClient = axios.create({
+        baseURL: import.meta.env.VITE_APP_API_URL,  // Vite 使用 import.meta.env
+    });
+
     // 提交品項
     const handleSubmit = async (item: MenuItem): Promise<void> => {
         if (!validateItem(item)) {
@@ -112,7 +117,7 @@
 
     // 新增品項
     const addItem = (): void => {
-        axios.get('https://localhost:7011/api/Menu/GetMenuItems')
+        apiClient.get('/api/Menu/GetMenuItems')
             .then(response => {
                 const newItems: MenuItem[] = response.data.map((menuItem: MenuItem) => ({
                     ...menuItem,
