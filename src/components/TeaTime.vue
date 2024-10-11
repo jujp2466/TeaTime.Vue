@@ -22,9 +22,9 @@
             </template>
 
             <!-- 操作按鈕 -->
-            <template #cell(actions)="data">
+            <!--<template #cell(actions)="data">
                 <button @click="handleSubmit(data.item)" class="btn btn-primary">提交</button>
-            </template>
+            </template>-->
         </b-table>
 
         <!-- 按鈕用來動態增加品項 -->
@@ -95,25 +95,25 @@
 
     // 使用環境變數中的 API URL
     const apiClient = axios.create({
-        baseURL: import.meta.env.VITE_APP_API_URL,  // Vite 使用 import.meta.env
+        baseURL: import.meta.env.VITE_API_URL,  // Vite 使用 import.meta.env
     });
 
     // 提交品項
-    const handleSubmit = async (item: MenuItem): Promise<void> => {
-        if (!validateItem(item)) {
-            return;
-        }
-        // 提交邏輯
-        try {
-            await axios.post('https://localhost:7137/api/Order/SubmitOrder', {
-                itemId: item.id,
-                quantity: item.quantity
-            });
-            alert('訂單已提交');
-        } catch (error) {
-            console.error('Error submitting order:', error);
-        }
-    };
+    //const handleSubmit = async (item: MenuItem): Promise<void> => {
+    //    if (!validateItem(item)) {
+    //        return;
+    //    }
+    //    // 提交邏輯
+    //    try {
+    //        await axios.post('/api/Order/SubmitOrder', {
+    //            itemId: item.id,
+    //            quantity: item.quantity
+    //        });
+    //        alert('訂單已提交');
+    //    } catch (error) {
+    //        console.error('Error submitting order:', error);
+    //    }
+    //};
 
     // 新增品項
     const addItem = (): void => {
@@ -140,7 +140,7 @@
 
     // 元件掛載時加載資料
     onMounted(async () => {
-        await axios.get('https://localhost:7011/api/Menu/GetMenuItems')
+        await apiClient.get('/api/Menu/GetMenuItems')
             .then(response => {
                 items.value = response.data.map((menuItem: MenuItem) => ({
                     ...menuItem,
