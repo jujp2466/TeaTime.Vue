@@ -59,10 +59,10 @@
 
     const items: Ref<MenuItem[]> = ref([]); // 使用明確的型別
     const fields = [
-        { key: 'item', label: '品項' },
-        { key: 'price', label: '價格' },
-        { key: 'quantity', label: '數量' },
-        { key: 'actions', label: '操作' }
+        { key: 'item', label: '品項1' },
+        { key: 'price', label: '價格1' },
+        { key: 'quantity', label: '數量1' },
+        { key: 'actions', label: '操作1' }
     ];
     const selected: Ref<string | null> = ref(null);
     const options: Ref<{ value: string | null, text: string }[]> = ref([
